@@ -44,7 +44,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string")
      */
-    private $roles = [];
+    private $roles;
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Task", mappedBy="user", orphanRemoval=true)
@@ -107,10 +107,9 @@ class User implements UserInterface
         return array_unique($roles);
     }
 
-    public function setRoles(array $roles): self
+    public function setRoles($roles): self
     {
         $this->roles = $roles;
-        return $this;
     }
 
     public function addTask(Task $task): self
