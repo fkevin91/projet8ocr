@@ -3,7 +3,7 @@ services:
  
     db:
         image: mysql
-        container_name: db_projet_8
+        container_name: db_p8_test
         restart: always
         volumes:
             - db-data:/var/lib/mysql
@@ -14,7 +14,7 @@ services:
 
     phpmyadmin:
         image: phpmyadmin
-        container_name: phpmyadmin_projet_8
+        container_name: phpmyadmin_p8_test
         restart: always
         depends_on:
             - db
@@ -24,20 +24,10 @@ services:
             PMA_HOST: db
         networks:
             - dev
-
-    maildev:
-        image: maildev/maildev
-        container_name: maildev_projet_8
-        command: bin/maildev --web 80 --smtp 25 --hide-extensions STARTTLS
-        ports:
-          - "8081:80"
-        restart: always
-        networks:
-            - dev
     
     www:
         build: php
-        container_name: www_projet_8
+        container_name: www_p8_test
         ports:
           - "8741:80"
         volumes:
