@@ -25,6 +25,7 @@ class TaskController extends AbstractController
     public function new(Request $request, TaskRepository $taskRepository): Response
     {
         $task = new Task();
+        $task->setCreatedAt(new \DateTime());
         $form = $this->createForm(TaskType::class, $task);
         $form->handleRequest($request);
 
