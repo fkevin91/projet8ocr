@@ -1,5 +1,15 @@
 version: "3.8"
 services:
+
+    blackfire:
+        image: blackfire/blackfire:2
+        environment:
+            #BLACKFIRE_CLIENT_ID: 0d663c61-c763-43bb-8d47-37007861b702
+            #BLACKFIRE_CLIENT_TOKEN: 99602804164d97075782088ef4c791e1ebd4c55bcaa27fce83c7fc1c62f376c6
+            BLACKFIRE_SERVER_ID: bf0501d8-c4ff-4b49-829d-79a551449aaa
+            BLACKFIRE_SERVER_TOKEN: 31547b1abf6e6601dac3a162cae3141e12c5f4be36ca1a6d36bcec754d02728e
+        networks:
+            - dev
  
     db:
         image: mysql
