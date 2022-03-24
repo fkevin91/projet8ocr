@@ -16,18 +16,50 @@
                     <p>{{ task.content }}</p>
                 </div>
                 <div>
-                    <form action="{{ path('task_toggle', {'id' : task.id }) }}">
-                        <button class="btn btn-success btn-sm pull-right">
-                            {% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}
-                        </button>
-                    </form>
-                    <form action="{{ path('app_task_edit', {'id' : task.id }) }}">
-                        <button class="btn btn-info btn-sm pull-right">Modifer</button>
-                    </form>
-                    <form method="post" action="{{ path('app_task_delete', {'id': task.id}) }}" onsubmit="return confirm('Etes vous sure de vouloir supprimer la tache {{ task.title }} ?');">
-                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ task.id) }}">
-                        <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
-                    </form>
+
+
+                    {% if task.user == null %}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <form action="{{ path('task_toggle', {'id' : task.id }) }}">
+                                <button class="btn btn-success btn-sm pull-right">
+                                    {% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}
+                                </button>
+                            </form>
+                        {% endif %}
+                    {% endif %}
+                    {% if task.user == app.user %}
+                            <form action="{{ path('task_toggle', {'id' : task.id }) }}">
+                                <button class="btn btn-success btn-sm pull-right">
+                                    {% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}
+                                </button>
+                            </form>
+                    {% endif %}
+                    {% if task.user == null %}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <form action="{{ path('app_task_edit', {'id' : task.id }) }}">
+                                <button class="btn btn-info btn-sm pull-right">Modifer</button>
+                            </form>
+                        {% endif %}
+                    {% endif %}
+                    {% if task.user == app.user %}
+                            <form action="{{ path('app_task_edit', {'id' : task.id }) }}">
+                                <button class="btn btn-info btn-sm pull-right">Modifer</button>
+                            </form>
+                    {% endif %}
+                    {% if task.user == null %}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <form method="post" action="{{ path('app_task_delete', {'id': task.id}) }}" onsubmit="return confirm('Etes vous sure de vouloir supprimer la tache {{ task.title }} ?');">
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ task.id) }}">
+                                <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                            </form>
+                        {% endif %}
+                    {% endif %}
+                    {% if task.user == app.user %}
+                            <form method="post" action="{{ path('app_task_delete', {'id': task.id}) }}" onsubmit="return confirm('Etes vous sure de vouloir supprimer la tache {{ task.title }} ?');">
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ task.id) }}">
+                                <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                            </form>
+                    {% endif %}
                 </div>
             </div>
         </div>
