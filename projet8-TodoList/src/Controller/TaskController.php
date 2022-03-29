@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 #[Route('/task')]
 class TaskController extends AbstractController
 {
@@ -77,15 +78,13 @@ class TaskController extends AbstractController
         return $this->redirectToRoute('task_list', [], Response::HTTP_SEE_OTHER);
     }
 
-    /**
-     * @Route("/tasks/{id}/toggle", name="task_toggle")
-     */
+    #[Route('/tasks/{id}/toggle', name: 'task_toggle')]
     public function toggleTaskAction(Task $task)
     {
         $task->toggle(!$task->getIsDone());
         $this->getDoctrine()->getManager()->flush();
 
-        $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme faite.', $task->getTitle()));
+        $this->addFlash('success', sprintf('La tâche a bien été marquée comme faite.', $task->getTitle()));
 
         return $this->redirectToRoute('task_list');
     }
