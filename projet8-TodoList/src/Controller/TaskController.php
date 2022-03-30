@@ -68,13 +68,10 @@ class TaskController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_task_delete', methods: ['POST'])]
+    #[Route('/{id}/delete', name: 'app_task_delete', methods: ['GET'])]
     public function delete(Request $request, Task $task, TaskRepository $taskRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$task->getId(), $request->request->get('_token'))) {
-            $taskRepository->remove($task);
-        }
-
+        $taskRepository->remove($task);
         return $this->redirectToRoute('task_list', [], Response::HTTP_SEE_OTHER);
     }
 
