@@ -88,7 +88,7 @@ class TaskControllerTest extends WebTestCase
     {
         $this->loginWithUser();
 
-        $this->client->request('GET', '/task/tasks/54/toggle?');
+        $this->client->request('GET', '/task/tasks/55/toggle?');
 
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
 
@@ -103,7 +103,7 @@ class TaskControllerTest extends WebTestCase
     {
         $this->loginWithUser();
 
-        $this->client->request('GET', '/task/54/delete');
+        $this->client->request('GET', '/task/55/delete');
 
         $this->assertEquals(303, $this->client->getResponse()->getStatusCode());
 
