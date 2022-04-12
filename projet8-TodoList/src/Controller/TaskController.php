@@ -54,21 +54,28 @@ class TaskController extends AbstractController
     #[Route('/{id}/edit', name: 'app_task_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Task $task, TaskRepository $taskRepository): Response
     {
-        $form = $this->createForm(TaskType::class, $task);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $taskRepository->add($task);
-            return $this->redirectToRoute('task_list', [], Response::HTTP_SEE_OTHER);
+        if (
+            $task->getUser() == $this->getUser() || 
+            (
+                $this->getUser())->getRoles() == ['ROLE_ADMIN'] && $task->getUser() == null
+            ) {
+            $form = $this->createForm(TaskType::class, $task);
+            $form->handleRequest($request);
+    
+            if ($form->isSubmitted() && $form->isValid()) {
+                $taskRepository->add($task);
+                return $this->redirectToRoute('task_list', [], Response::HTTP_SEE_OTHER);
+            }
+    
+            return $this->renderForm('task/edit.html.twig', [
+                'task' => $task,
+                'form' => $form,
+            ]);
         }
-
-        return $this->renderForm('task/edit.html.twig', [
-            'task' => $task,
-            'form' => $form,
-        ]);
+        return $this->redirectToRoute('homepage', [], Response::HTTP_SEE_OTHER);
     }
 
-    #[Route('/{id}/delete', name: 'app_task_delete', methods: ['GET'])]
+    #[Route('/{id}/delete', name: 'app_task_delete', methods: ['POST'])]
     public function delete(Request $request, Task $task, TaskRepository $taskRepository): Response
     {
         $taskRepository->remove($task);

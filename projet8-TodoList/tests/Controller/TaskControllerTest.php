@@ -88,7 +88,7 @@ class TaskControllerTest extends WebTestCase
     {
         $this->loginWithUser();
 
-        $this->client->request('GET', '/task/tasks/55/toggle?');
+        $this->client->request('GET', '/task/tasks/59/toggle?');
 
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
 
@@ -103,7 +103,7 @@ class TaskControllerTest extends WebTestCase
     {
         $this->loginWithUser();
 
-        $this->client->request('GET', '/task/55/delete');
+        $this->client->request('POST', '/task/59/delete');
 
         $this->assertEquals(303, $this->client->getResponse()->getStatusCode());
 
@@ -112,13 +112,4 @@ class TaskControllerTest extends WebTestCase
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
 
     }
-
-/*
-    public function tearDown(): void
-    {
-        $this->client = null;
-        $crawler = null;
-        $form = null;
-    }
-    */
 }

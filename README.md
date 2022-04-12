@@ -14,3 +14,7 @@ PHP => 7.1
     => le mot de passe utilisateur doit etre "authentification MySQL native"
 ````
 ## Utilisation avec Docker :
+
+````
+test : php vendor/bin/phpunit --coverage-html tests/test-coverage
+````
