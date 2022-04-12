@@ -26,12 +26,12 @@ security:
                 check_path: login
             logout:
                 path: app_logout
-            access_control:
-                - { path: ^/user, roles: ROLE_ADMIN }
-                - { path: ^/register, roles: ROLE_ADMIN }
-                - { path: ^/task/*, roles: ROLE_USER }
-            role_hierarchy:
-                ROLE_ADMIN:       ROLE_USER
+    access_control:
+        - { path: ^/user, roles: ROLE_ADMIN }
+        - { path: ^/register, roles: ROLE_ADMIN }
+        - { path: ^/task/*, roles: ROLE_USER }
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
 
 when@test:
     security:
