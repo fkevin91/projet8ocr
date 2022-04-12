@@ -62,7 +62,7 @@ Version de MySQL  : 8.0.27
 
 ### Clone repository
 ````
- git clone https://github.com/jucarre/TodoList.git
+ git clone https://github.com/fkevin91/projet8ocr.git
 ````
 
 ### Configure the connection to DB on .env file
