@@ -75,6 +75,12 @@ Implémentation de tests automatisés
 
 ## Points a améliorer
 
-les poionts a améliorer sont la mise en place de la pagination et de bien faire la diférence via deux listes distinctes des taches effectué et non effectué
+
+````
+La mise en place de la pagination
+````
+````
+Faire la diférence via deux listes distinctes des taches effectué et non effectué
+````
 
 
