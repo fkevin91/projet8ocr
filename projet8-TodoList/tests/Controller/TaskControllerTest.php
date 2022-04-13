@@ -63,7 +63,7 @@ class TaskControllerTest extends WebTestCase
     {
         $this->loginWithAdmin();
 
-        $crawler = $this->client->request('GET', '/task/29/edit');
+        $crawler = $this->client->request('GET', '/task/5/edit');
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
 
         $this->assertSame('Title', $crawler->filter('label[for="task_title"]')->text());
@@ -88,7 +88,7 @@ class TaskControllerTest extends WebTestCase
     {
         $this->loginWithUser();
 
-        $this->client->request('GET', '/task/tasks/59/toggle?');
+        $this->client->request('GET', '/task/tasks/18/toggle?');
 
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
 
@@ -103,7 +103,7 @@ class TaskControllerTest extends WebTestCase
     {
         $this->loginWithUser();
 
-        $this->client->request('POST', '/task/59/delete');
+        $this->client->request('POST', '/task/18/delete');
 
         $this->assertEquals(303, $this->client->getResponse()->getStatusCode());
 
