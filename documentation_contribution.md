@@ -30,7 +30,7 @@ Les fichiers du projet sont structuré de la maniere suivante :
 
     _ templates : 
             =>      base.html.twig  (fichier parent)
-            =>      *.html.twign    (fichier qui extend du fichier parent)
+            =>      *.html.twig    (fichier qui extend du fichier parent)
     
     _ config :
             =>      fichier de config (security, framework, ..)
@@ -41,7 +41,7 @@ Les fichiers du projet sont structuré de la maniere suivante :
 
 2 - Le navigateur enverra une requête au serveur Web.
 
-3 - Le serveur Web transmettra la requête au PHP, qui l'enverra à son tour au framework Web Symfony.
+3 - Le serveur Web transmettra la requête au PHP, qui l'enverra à son tour au framework Symfony.
 
 4 - HttpKernel est le composant principal de Symfony. HttpKernel résout le contrôleur de la demande donnée à l'aide du composant de routage et transmet la demande au contrôleur cible.
 
@@ -52,4 +52,29 @@ Les fichiers du projet sont structuré de la maniere suivante :
 7 - Une fois que le contrôleur a terminé son processus, il génère la réponse et la renvoie au serveur Web.
 
 8 - Enfin, la réponse sera envoyée au navigateur.
+
+
+
+## Points amélioré
+
+````
+Migration vers la version 5.4 de symfony
+````
+````
+Attribution de la tache a son propriétaire 
+````
+````
+Attribution des roles par l'administrateur
+````
+````
+les utilisateurs ayant le rôle administrateur (ROLE_ADMIN) doivent pouvoir accéder aux pages de gestion des utilisateurs.
+````
+````
+Implémentation de tests automatisés
+````
+
+## Points a améliorer
+
+les poionts a améliorer sont la mise en place de la pagination et de bien faire la diférence via deux listes distinctes des taches effectué et non effectué
+
 
