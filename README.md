@@ -5,28 +5,28 @@
 # TODO LIST - Projet 8 OpenClassRoom
 
 
-## Telecharger Docker pour votre système d’exploitation 
+## Download Docker for your OS 
 
     _ https://www.docker.com/get-started
 
-Sous window, il est recommandé de télécharger et d’activer WSL2
+in window, it is recommended to download and activate WSL2
 
 	  _ https://docs.microsoft.com/fr-fr/windows/wsl/install
 
-de configurer votre nom d’utilisateur et votre mot de passe Linux
+configure your Linux username and password
 
     _ https://docs.microsoft.com/fr-fr/windows/wsl/setup/environment#set-up-your-linux-username-and-password
 
-et de lancer les commandes docker via la VM Linux.
-Pour ce projet utilisant un fichier docker compose, 
-vous vous placerez à l'entré du projet et vous lancerez la commande :
+and run docker commands through the Linux VM.
+For this project using a docker compose file,
+you will place yourself at the entrance of the project and you will launch the command:
 
-    _ “docker compose up” = avec logs
-    _ “docker compose up -d” = sans logs (arrière plan) 
+    _ “docker compose up” = with logs
+    _ “docker compose up -d” = without logs (daemon) 
 
 
 
-## Environement :
+## Environment :
 
 image php : 
 ````
@@ -43,12 +43,12 @@ image BlackFire :
 blackfire/blackfire:2
 ````
 
-## Sans Docker
+## Without Docker
 
-Si vous ne souhaitez pas utiliser Docker, téléchargez simplement le projet,
-rendez vous dans le dossier “projet8-TodoList” et lancer la commande “symfony serve -d”
+If you don't want to use Docker, just download the project,
+go to the “projet8-TodoList” folder and run the command “symfony serve -d”
 
-### Bien sûr vous devez vous assurer d’utiliser les versions suivantes :
+### Of course you must make sure to use the following versions :
 
 
 ````
@@ -58,7 +58,7 @@ PHP                 : 8.1.1
 Version de MySQL  : 8.0.27 
 ````
 
-## Installation
+## Install
 
 ### Clone repository
 ````
